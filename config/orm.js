@@ -88,7 +88,6 @@ connection.connect(function(err) {
   
     }
   
-  };
-  
+  };  
 
 module.exports = orm;
