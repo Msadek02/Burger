@@ -13,5 +13,14 @@ else{
     database : 'burgers_db' // Add your database
   });
 }
+connection.connect(function(err) {
+  console.log(err.code); // 'ECONNREFUSED'
+  console.log(err.fatal); // true
+});
+
+connection.query('SELECT 1', function (error, results, fields) {
+  console.log(error.code); // 'ECONNREFUSED'
+  console.log(error.fatal); // true
+});
 
 module.exports = connection;
