@@ -1,6 +1,9 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
+
+
+
 var db_config = {
   host         : 'localhost',
   user         : 'app',
@@ -11,17 +14,14 @@ var db_config = {
 //- Create the connection variable
 var connection = mysql.createConnection(db_config);
 
-//- Establish a new connection
-connection.connect(function(err){
-  if(err) {
-      // mysqlErrorHandling(connection, err);
-      console.log("\n\t *** Cannot establish a connection with the database. ***");
-
-      connection = reconnect(connection);
-  }else {
-      console.log("\n\t *** New connection established with the database. ***")
-  }
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  };
+  console.log('connected as id ' + connection.threadId);
 });
+
 
 //- Reconnection function
 function reconnect(connection){
