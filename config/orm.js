@@ -20,7 +20,9 @@ connection.connect(function(err) {
   
       // Run MySQL Query
       connection.query('SELECT * FROM burgers', function (err, result) {
-        if (err) throw err;
+        if (err) {
+          throw err;
+        }
         callback(result);
       });
   
@@ -71,7 +73,9 @@ connection.connect(function(err) {
         devoured: false,
         date: timestamp
       }, function (err, result) {
-        if (err) throw err;
+         if (err) {
+        throw err;
+      }
         callback(result);
       });
   
@@ -82,7 +86,9 @@ connection.connect(function(err) {
   
       // Run MySQL Query
       connection.query('UPDATE burgers SET ? WHERE ?', [{devoured: true}, {id: burgerID}], function (err, result) {
-          if (err) throw err;
+           if (err) {
+        throw err;
+      }
           callback(result);
         });
   
