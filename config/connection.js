@@ -18,9 +18,15 @@ connection.connect(function(err) {
   console.log(err.fatal); // true
 });
 
-connection.query('SELECT 1', function (error, results, fields) {
-  console.log(error.code); // 'ECONNREFUSED'
-  console.log(error.fatal); // true
+connection.connect(function(err) {
+  if (err) {
+    console.error('Error:- ' + err.stack);
+    return;
+}
+
+console.log('Connected Id:- ' + connection.threadId);
 });
+  
+
 
 module.exports = connection;
