@@ -12,10 +12,7 @@ else{
     user     : 'root',
     password : 'root', // Add your password
     database : 'burgers_db', // Add your database
-    port: 3306,
-    connectionLimit: 50,
-    queueLimit: 0,
-    waitForConnection: true
+    port: 3306
   });
 }
 
