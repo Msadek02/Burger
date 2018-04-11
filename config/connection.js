@@ -12,7 +12,11 @@ else{
     user     : 'root',
     password : 'root', // Add your password
     database : 'burgers_db', // Add your database
-    port: 3306
+    port: 3306,
+    production: {
+      use_env_variable:"JawsDB_URL",
+      dialect: 'mysql'
+    }
   });
 }
 
