@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var connection;
 
 // For Heroku Deployment vs. Local MySQL Database
-if(process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
+if(process.env.NODE_ENV)){
+  connection = mysql.createConnection(process.env.JAWSDB_URL, {dialect: "mysql"});
 }
 else{
   connection = mysql.createConnection({
